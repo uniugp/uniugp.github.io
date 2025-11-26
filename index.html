@@ -63,9 +63,9 @@
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
                         <h1 class="title publication-title">
-                            <img src="website/images/logo.png" alt="logo" width="600" height="40" /><br>
-                            <img src="website/images/logo2.png" alt="logo" width="600" height="40" /><br>
-                            UniUGP: Unifying Understanding, Generation, and Planing For End-to-end Autonomous Driving
+                            <img src="website/images/logo.png" alt="logo" width="600" height="40" /><br><br>
+                            <img src="website/images/logo2.png" alt="logo" width="100" height="40" /><br><br>
+                            UniUGP: Unifying Understanding, Generation, and Planning For End-to-end Autonomous Driving
                         </h1>
                     </div>
                 </div>
@@ -75,20 +75,19 @@
 
     <section class="section" id="abstract">
         <div class="container is-max-desktop">
-            <!-- Abstract. -->
+            <!-- Abstract -->
             <div class="columns is-centered has-text-centered">
                 <div class="column is-four-fifths">
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified">
                         <p>
-                            Training corpuses for vision language models typically lack sufficient amounts of decision-centric data. This renders off-the-shelf VLMs sub-optimal for decision-making tasks such as in-the-wild device control through graphical user interfaces (GUIs). While training with static demonstrations has shown some promise, we show that such methods fall short when controlling <b>real</b> GUIs due to their failure to deal with real world <b>stochasticity</b> not captured in static observational data.  
-                            This paper introduces a novel autonomous RL approach, called <b>DigiRL</b>, for training in-the-wild device control agents through fine-tuning a pre-trained VLM in two stages: offline RL to initialize the model, followed by offline-to-online RL. To do this, we build a <b>scalable</b> and <b>parallelizable</b> Android learning environment equipped with a VLM-based evaluator and develop a simple yet effective RL approach for learning in this domain. Our approach runs advantage-weighted RL with advantage estimators enhanced to account for stochasticity along with an automatic curriculum for deriving maximal learning signal. 
-                            We demonstrate the effectiveness of <b>DigiRL</b> using the Android-in-the-Wild (AitW) dataset, where our 1.5B VLM trained with RL achieves a <b>49.5% absolute improvement</b> -- from 17.7% to 67.2% success rate -- over supervised fine-tuning with static human demonstration data. These results significantly surpass not only the prior best agents, including AppAgent with GPT-4V (8.3% success rate) and the 17B CogAgent trained with AitW data (14.4%), but also the prior best autonomous RL approach based on filtered behavior cloning (57.8%), thereby <b>establishing a new state-of-the-art</b> for digital agents for in-the-wild device control.    
+                            Autonomous driving (AD) systems struggle in long-tail scenarios due to limited world knowledge and weak visual dynamic modeling. Existing vision-language-action (VLA)-based methods cannot leverage unlabeled videos for visual causal learning, while world model-based methods lack reasoning capabilities from large language models.  
+                            In this paper, we construct multiple specialized datasets providing reasoning and planning annotations for complex scenarios. Then, a unified Understanding-Generation-Planning framework, named UniUGP, is proposed to synergize scene reasoning, future video generation, and trajectory planning through a hybrid expert architecture. By integrating pre-trained VLMs and video generation models, UniUGP leverages visual dynamics and semantic reasoning to enhance planning performance. Taking multi-frame observations and language instructions as input, it produces interpretable chain-of-thought reasoning, physically consistent trajectories, and coherent future videos. We introduce a four-stage training strategy that progressively builds these capabilities across multiple existing AD datasets, along with the proposed specialized datasets. Experiments demonstrate state-of-the-art performance in perception, reasoning, and decision-making, with superior generalization to challenging long-tail situations.   
                         </p>
                     </div>
                 </div>
             </div>
-            <!--/ Abstract. -->
+            <!-- /Abstract -->
         </div>
         <div class="container is-max-desktop">
             <div class="is-centered has-text-centered">
