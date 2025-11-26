@@ -81,14 +81,36 @@
                     <h2 class="title is-3">Abstract</h2>
                     <div class="content has-text-justified">
                         <p>
-                            Autonomous driving (AD) systems struggle in long-tail scenarios due to limited world knowledge and weak visual dynamic modeling. Existing vision-language-action (VLA)-based methods cannot leverage unlabeled videos for visual causal learning, while world model-based methods lack reasoning capabilities from large language models.  
-                            In this paper, we construct multiple specialized datasets providing reasoning and planning annotations for complex scenarios. Then, a unified Understanding-Generation-Planning framework, named UniUGP, is proposed to synergize scene reasoning, future video generation, and trajectory planning through a hybrid expert architecture. By integrating pre-trained VLMs and video generation models, UniUGP leverages visual dynamics and semantic reasoning to enhance planning performance. Taking multi-frame observations and language instructions as input, it produces interpretable chain-of-thought reasoning, physically consistent trajectories, and coherent future videos. We introduce a four-stage training strategy that progressively builds these capabilities across multiple existing AD datasets, along with the proposed specialized datasets. Experiments demonstrate state-of-the-art performance in perception, reasoning, and decision-making, with superior generalization to challenging long-tail situations.   
+                            Autonomous driving (AD) systems struggle in long-tail scenarios due to limited world knowledge and weak visual dynamic modeling. Existing vision-language-action (VLA)-based methods cannot leverage unlabeled videos for visual causal learning, while world model-based methods lack reasoning capabilities from large language models. <br> 
+                            In this paper, we construct multiple specialized datasets providing reasoning and planning annotations for complex scenarios. Then, a unified Understanding-Generation-Planning framework, named UniUGP, is proposed to synergize scene reasoning, future video generation, and trajectory planning through a hybrid expert architecture. By integrating pre-trained VLMs and video generation models, UniUGP leverages visual dynamics and semantic reasoning to enhance planning performance. Taking multi-frame observations and language instructions as input, it produces interpretable chain-of-thought reasoning, physically consistent trajectories, and coherent future videos. We introduce a four-stage training strategy that progressively builds these capabilities across multiple existing AD datasets, along with the proposed specialized datasets. Experiments demonstrate state-of-the-art performance in perception, reasoning, and decision-making, with superior generalization to challenging long-tail situations. <br>  
                         </p>
                     </div>
                 </div>
             </div>
             <!-- /Abstract -->
+
+            <!-- Method -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Method</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            UniUGP is a unified Hybrid Expert framework for end-to-end autonomous driving, with three core experts (Understanding, Planning, Generation). It makes full use of pre-trained VLMs and generative models’ existing knowledge, uses the MoT architecture and reflected flow for advanced trajectory planning, and retains pre-trained video models’ visual causal ability when expanding generation capabilities. <br>  
+                        </p>
+                        <img src="website/images/pic1.png" alt="illustrative-example"
+                                style="margin: 0 auto; display: block; max-width: 1000px; width: 100%; height: auto;" /><br>
+                        <p>
+                            Fig.1 Illustration of UniUGP, a unified model with three hybrid experts. The understanding expert performs the next-token prediction for causal reasoning. The planning expert forms a MoT architecture with the understanding expert, and performs the velocity prediction in flow matching for production future actions. The generation expert is cascaded as a world model to produce future videos. <br>  
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- /Method -->
+            
         </div>
+
+        
+        
         <div class="container is-max-desktop">
             <div class="is-centered has-text-centered">
                 <div class="custom-column-large">
