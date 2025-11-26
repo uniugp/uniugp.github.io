@@ -97,7 +97,7 @@
                         <p>
                             UniUGP is a unified Hybrid Expert framework for end-to-end autonomous driving, with three core experts (Understanding, Planning, Generation). It makes full use of pre-trained VLMs and generative models’ existing knowledge, uses the MoT architecture and reflected flow for advanced trajectory planning, and retains pre-trained video models’ visual causal ability when expanding generation capabilities. <br>  
                         </p>
-                        <img src="website/images/pic1.png" alt="illustrative-example"
+                        <img src="website/images/pic1.png" alt="Illustration of UniUGP"
                                 style="margin: 0 auto; display: block; max-width: 1000px; width: 100%; height: auto;" /><br>
                         <p>
                             Fig.1 Illustration of UniUGP, a unified model with three hybrid experts. The understanding expert performs the next-token prediction for causal reasoning. The planning expert forms a MoT architecture with the understanding expert, and performs the velocity prediction in flow matching for production future actions. The generation expert is cascaded as a world model to produce future videos. <br>  
@@ -106,6 +106,76 @@
                 </div>
             </div>
             <!-- /Method -->
+
+            <!-- Dataset -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Dataset</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            To address the limitation of existing driving benchmarks (focused on structured scenes/simulators while ignoring long-tail events), we integrated heterogeneous datasets (Waymo-E2E, DADA2000, LaF, StHa, SOM, AADV) into a unified framework aligned with four cognitive competencies: Perception & Understanding, Causal CoT Reasoning, Planning & Decision-Making, and Instruction Following. For Perception & Understanding, three subtasks were designed: 1) Small long-tailed objects: True/False questions built from dataset segmentation labels, with diverse question templates to boost generalization; 2) Long-tailed accident prediction: True/False questions based on dataset abnormal labels and timestamps, using varied prompts; 3) Long-tailed accident relationship: Multiple-choice questions where distractors are filtered/selected (random 2/4 options), shuffled, and mapped to A/B/C/D labels, with questions asking to describe the current situation. <br>  
+                        </p>
+                        <p>
+                            For Causal CoT Reasoning, we leveraged future image sequences and ground-truth ego trajectories to ensure reasoning aligns with physical outcomes, requiring the chain to cover scene context, key interactive agents, their potential intentions, and justifications for the final driving action. Advanced VLMs were prompted with future planning results to generate accurate CoT, which was further manually calibrated. <br>  
+                        </p>
+                        <img src="website/images/pic2.png" alt="Dataset Construction Pipeline"
+                                style="margin: 0 auto; display: block; max-width: 1000px; width: 100%; height: auto;" /><br>
+                        <p>
+                            Dataset Construction Pipeline. This figure depicts the pipeline of data collection (integrating multiple challenging driving datasets) and data processing (featuring four task categories: understanding,  chain-of-thought, planning, and instruction following) to train and assess the cognitive abilities of end-to-end autonomous driving models within a unified QA framework. <br>  
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- /Dataset -->
+
+            <!-- Training Recipe -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Training Recipe</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We propose a four-stage sequential training framework: Stage 1 trains only the Understanding Expert on annotated long-tail data and ImpromptuVLA to build diverse driving scenario understanding; Stage 2 trains the Generation and Planning Experts using trajectory-equipped datasets (nuScenes, NuPlan, etc.) for visual dynamics and motion planning; Stage 3 fine-tunes the Understanding Expert with a self-annotated CoT dataset to integrate causal reasoning; Stage 4 jointly trains all three experts with mixed data from Stages 1–3. <br>  
+                        </p>
+                        <img src="website/images/pic3.png" alt="training framework"
+                                style="margin: 0 auto; display: block; max-width: 1000px; width: 100%; height: auto;" /><br>
+                    </div>
+                </div>
+            </div>
+            <!-- /Training Recipe -->
+
+            <!-- Result -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Result</h2>
+                    <div class="content has-text-justified">
+                        <p><b>Reasoning ability.</b></p><br>
+                        <p>
+                            The world model forces VLA to learn visual causal inference, particularly focusing on distant objects to generate better future frames. This enables the VLA model to predict potential dangers in advance, thereby ensuring driving safety. <br>  
+                        </p>
+                        <img src="website/images/pic4.png" alt="Result"
+                                style="margin: 0 auto; display: block; max-width: 1000px; width: 100%; height: auto;" /><br>
+                        <p>
+                            The ablation experiment on the absence or presence of world model knowledge. The world model enables the VLA to pay more attention to future causal relationships, thereby focusing on the semantics of distant objects. <br>  
+                        </p>
+                        <br>
+
+                        <p><b>Generating ability.</b></p><br>
+                        <p>
+                            UniUGP can generate trajectories and weather control as shown in the figure. This proves that the generation capability of our method is effective. <br>  
+                        </p>
+                        <!--<img src="website/images/pic5.png" alt="Result"
+                                style="margin: 0 auto; display: block; max-width: 1000px; width: 100%; height: auto;" /><br>-->
+                        <p>
+                            Trajectory-controlled generation visualization. By modifying the trajectories input into the generation model, we can control the generation of future frames in the video. This demonstrates the controllability of our generation technology. <br>  
+                        </p>
+                        <!--<img src="website/images/pic6.png" alt="Result"
+                                style="margin: 0 auto; display: block; max-width: 1000px; width: 100%; height: auto;" /><br>-->
+                        <p>
+                            Video generation visualization with controllable weather conditions. Our model can generate videos of different weather conditions, which proves the efficiency of our generation model. <br>  
+                    </div>
+                </div>
+            </div>
+            <!-- /Result -->
             
         </div>
 
